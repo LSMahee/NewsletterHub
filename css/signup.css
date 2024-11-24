@@ -1,0 +1,141 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling the body */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #EBF4FF, #F0F7FF); /* Adjusted to match the light gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background */
+.background-shapes {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, #007AFF, #EBF4FF); /* Match the gradient */
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    animation: rotate 20s linear infinite;
+}
+
+/* Rotate animation for background */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Centered container for the signup card */
+.signup-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    animation: fade-in 1s ease-out;
+}
+
+/* Signup card styles */
+.signup-card {
+    background-color: #FFFFFF; /* White background */
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.signup-card:hover {
+    transform: rotate(0deg);
+}
+
+/* Title styles */
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1A1A1A; /* Dark text */
+    margin-bottom: 15px;
+}
+
+/* Input group styling */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #666; /* Light gray */
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 14px 14px 14px 40px; /* Space for the icon */
+    border: 2px solid #E0E0E0; /* Light gray border */
+    border-radius: 8px;
+    background-color: #F8F9FA; /* Light background */
+    font-size: 16px;
+    color: #1A1A1A; /* Dark text */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #007AFF; /* Blue focus */
+    box-shadow: 0 0 8px rgba(0, 122, 255, 0.3);
+    outline: none;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007AFF; /* Blue */
+    color: #FFFFFF; /* White text */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056B3; /* Darker blue */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Floating animation */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

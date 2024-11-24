@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #6B8DD6, #8E37D7);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out;
+            transform-origin: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            color: #4a5568;
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 15px 0 25px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .category-list label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #f7fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-list label:hover {
+            background: #edf2f7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-list label::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.4s ease;
+        }
+
+        .category-list label:active::before {
+            transform: translate(-50%, -50%) scale(2);
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #cbd5e0;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: #667eea;
+            border-color: #667eea;
+            animation: pulse 0.3s ease;
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            left: 4px;
+            top: 0px;
+            animation: fadeInUp 0.2s ease-out;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        input[type="email"]:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        input[type="submit"]::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 75%);
+            transform: translate(-50%, -50%) rotate(35deg) translateX(-200%);
+            transition: transform 0.6s ease;
+        }
+
+        input[type="submit"]:hover::after {
+            transform: translate(-50%, -50%) rotate(35deg) translateX(200%);
+        }
+
+        .confirmation {
+            margin-top: 20px;
+            text-align: center;
+            color: #48bb78;
+            font-weight: 500;
+            padding: 12px;
+            border-radius: 8px;
+            background: #f0fff4;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @media (max-width: 480px) {
+            .category-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Subscribe to Our Newsletter</h1>
+        <form id="newsletterForm" action="php/subscribe.php" method="POST">
+            <label for="email">Enter your email address</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+        
+            <label>Select your interests</label>
+            <div class="category-list">
+                <label><input type="checkbox" name="business" value="1"> Business</label>
+                <label><input type="checkbox" name="sports" value="1"> Sports</label>
+                <label><input type="checkbox" name="books" value="1"> Books</label>
+                <label><input type="checkbox" name="quotes" value="1"> Quotes</label>
+            </div>
+        
+            <input type="submit" value="Subscribe Now">
+        </form>
+
+        <div class="confirmation" id="confirmationMessage">
+            Thank you for subscribing to our newsletter! 🎉
+        </div>
+    </div>
+</body>
+</html>

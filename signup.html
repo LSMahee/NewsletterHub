@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="signup-container">
+    <div class="background-shapes"></div> <!-- Animated Background -->
+    <div class="signup-card">
+        <h2>Sign Up</h2>
+        <form action="php/signup.php" method="post">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="first-name" name="first_name" placeholder="First Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="last-name" name="last_name" placeholder="Last Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-user-circle"></i>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" placeholder="01234567890" required>
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

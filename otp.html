@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter OTP</title>
+    <link rel="stylesheet" href="css/otp.css">
+</head>
+<body>
+    <!-- Animated Background Shapes -->
+    <div class="background-shapes"></div>
+
+    <!-- OTP Verification Card -->
+    <div class="otp-container">
+        <div class="otp-card">
+            <h2>Two-Factor Authentication</h2>
+            <p class="subtext">Please enter the 6-digit OTP sent to your email or phone.</p>
+            
+            <!-- OTP Form -->
+            <form action="php/verify_otp.php" method="POST">
+                <label for="otp" class="hidden-label">Enter OTP</label>
+                <input type="text" id="otp" name="otp" maxlength="6" placeholder="●●●●●●" required>
+                <button type="submit">Verify OTP</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

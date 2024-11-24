@@ -1,0 +1,163 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #EBF4FF, #F0F7FF); /* Adjusted to match the light gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Animated background shapes */
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, #007AFF, #EBF4FF);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    animation: rotate-background 20s linear infinite;
+}
+
+
+/* Animation for background */
+@keyframes rotate-background {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Container for the OTP card */
+.otp-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float-in 1s ease-out;
+}
+
+/* Floating OTP card */
+.otp-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.otp-card:hover {
+    transform: rotate(0deg);
+}
+
+/* Title */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #202124;
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.subtext {
+    font-size: 16px;
+    color: #757575;
+    margin-bottom: 30px;
+}
+
+/* OTP Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Input */
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #dadce0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    font-size: 18px;
+    color: #202124;
+    text-align: center;
+    letter-spacing: 10px; /* Creates the ●●●●●● style */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007AFF; /* Soft coral color */
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
+    outline: none;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #007AFF; /* Soft coral color */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #0056B3; /* Darker coral */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Extra options */
+.extra-options {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #757575;
+}
+
+.extra-options a {
+    color: #007AFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.extra-options a:hover {
+    color: #0056B3;
+}
+
+/* Keyframe animations */
+@keyframes float-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

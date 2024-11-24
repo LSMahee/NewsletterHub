@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Newsletter</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+            border-color: #3b82f6;
+        }
+
+        .animate-form > * {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .animate-form > *:nth-child(1) { animation-delay: 0.1s; }
+        .animate-form > *:nth-child(2) { animation-delay: 0.2s; }
+        .animate-form > *:nth-child(3) { animation-delay: 0.3s; }
+        .animate-form > *:nth-child(4) { animation-delay: 0.4s; }
+        .animate-form > *:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-lg p-8 bg-white rounded-xl shadow-2xl animate-form">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Send Newsletter</h2>
+        <form action="php/send_writing.php" method="POST" class="space-y-4" id="newsletterForm">
+            <div>
+                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject:</label>
+                <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject" 
+                    required 
+                    class="form-input w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                >
+            </div>
+
+            <div>
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message:</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="10" 
+                    required 
+                    class="form-input w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                ></textarea>
+            </div>
+
+            <div>
+                <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Select Newsletter Category:</label>
+                <select 
+                    id="category" 
+                    name="category" 
+                    required 
+                    class="form-input w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                >
+                    <option value="">Select a Category</option>
+                    <option value="Business">Business</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Books">Books</option>
+                    <option value="Quotes">Quotes</option>
+                </select>
+                <p id="categoryError" class="text-red-500 text-xs mt-1 hidden">Please select a newsletter category</p>
+            </div>
+
+            <div class="text-center">
+                <button 
+                    type="submit" 
+                    class="px-6 py-3 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-300 transform hover:scale-105"
+                >
+                    Send Newsletter
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+            const categorySelect = document.getElementById('category');
+            const categoryError = document.getElementById('categoryError');
+
+            if (categorySelect.value === '') {
+                event.preventDefault();
+                categoryError.classList.remove('hidden');
+                categorySelect.classList.add('border-red-500');
+            } else {
+                categoryError.classList.add('hidden');
+                categorySelect.classList.remove('border-red-500');
+            }
+        });
+    </script>
+</body>
+</html>
